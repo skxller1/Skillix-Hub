@@ -1,3 +1,5 @@
+-- Credits to Peteware aka my friend Petah: https://discord.gg/AutHEkAmn4
+
 local Drawing = {}
 
 local DrawingPrimitives = {
