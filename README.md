@@ -31,7 +31,7 @@ Skillix is actively maintained to ensure reliability and a polished experience.
 
 ## Installation & Usage
 
-To use Skillix:
+How to use Skillix:
 
 1. Open your Roblox executor.  
 2. Paste the loader below into your executor.  
