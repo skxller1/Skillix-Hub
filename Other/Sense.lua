@@ -1,5 +1,3 @@
--- Credits to Peteware aka my friend Petah: https://discord.gg/AutHEkAmn4
-
 -- Modified Sense Library, Developed by Peteware
 
 -- drawing library fallback
@@ -8,7 +6,7 @@ local global_env = getgenv() or shared
 local Drawing = global_env.Drawing
 
 local function FetchDrawingFallback()
-    return loadstring(game:HttpGet("https://raw.githubusercontent.com/skxller1/Skillix-Hub/refs/heads/main/Other/Drawing.lua"))()
+    return loadstring(game:HttpGet("https://raw.githubusercontent.com/petewar3/Developer-Toolbox/refs/heads/main/Libraries/Drawing.lua"))()
 end
 
 if typeof(Drawing) == "table" then
@@ -763,7 +761,7 @@ function EspInterface.Load()
 	EspInterface._hasLoaded = true;
 end
 
-function EspInterface.Unload()
+function EspInterface.Cleanup()
 	assert(EspInterface._hasLoaded, "Esp has not been loaded yet.");
 
 	for index, object in next, EspInterface._objectCache do
@@ -776,6 +774,7 @@ function EspInterface.Unload()
 	EspInterface.playerAdded:Disconnect();
 	EspInterface.playerRemoving:Disconnect();
 	EspInterface._hasLoaded = false;
+	EspInterface._container:Destroy();
 end
 
 -- game specific functions
