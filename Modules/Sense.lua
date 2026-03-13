@@ -1,7 +1,7 @@
 -- Modified Sense Library, Developed by Peteware
 
 -- drawing library fallback
-local global_env = getgenv() or shared
+local global_env = getgenv and getgenv() or shared
 
 local Drawing = global_env.Drawing
 
