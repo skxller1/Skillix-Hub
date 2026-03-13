@@ -762,19 +762,28 @@ function EspInterface.Load()
 end
 
 function EspInterface.Cleanup()
-	assert(EspInterface._hasLoaded, "Esp has not been loaded yet.");
-
-	for index, object in next, EspInterface._objectCache do
-		for i = 1, #object do
-			object[i]:Destruct();
-		end
-		EspInterface._objectCache[index] = nil;
-	end
-
-	EspInterface.playerAdded:Disconnect();
-	EspInterface.playerRemoving:Disconnect();
-	EspInterface._hasLoaded = false;
-	EspInterface._container:Destroy();
+print("Called Cleanup")
+    if #Sense._objectCache > 0 then
+        for index, object in next, Sense._objectCache do
+            for i = 1, #object do
+                object[i]:Destruct()
+            end
+            Sense._objectCache[index] = nil
+        end
+    end
+        
+    if typeof(Sense.playerAdded) == "RBXScriptConnection" then
+        Sense.playerAdded:Disconnect()
+    end
+        
+    if typeof(Sense.playerRemoving) == "RBXScriptConnection" then
+        Sense.playerRemoving:Disconnect()
+    end
+        
+    Sense._hasLoaded = false
+    Sense._container:Destroy()
+        
+    Drawing.clear()
 end
 
 -- game specific functions
