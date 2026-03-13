@@ -762,26 +762,26 @@ function EspInterface.Load()
 end
 
 function EspInterface.Cleanup()
-print("Called Cleanup")
-    if #Sense._objectCache > 0 then
-        for index, object in next, Sense._objectCache do
+    print("Called Cleanup")
+    if #EspInterface._objectCache > 0 then
+        for index, object in next, EspInterface._objectCache do
             for i = 1, #object do
                 object[i]:Destruct()
             end
-            Sense._objectCache[index] = nil
+            EspInterface._objectCache[index] = nil
         end
     end
         
-    if typeof(Sense.playerAdded) == "RBXScriptConnection" then
-        Sense.playerAdded:Disconnect()
+    if typeof(EspInterface.playerAdded) == "RBXScriptConnection" then
+        EspInterface.playerAdded:Disconnect()
     end
         
-    if typeof(Sense.playerRemoving) == "RBXScriptConnection" then
-        Sense.playerRemoving:Disconnect()
+    if typeof(EspInterface.playerRemoving) == "RBXScriptConnection" then
+        EspInterface.playerRemoving:Disconnect()
     end
         
-    Sense._hasLoaded = false
-    Sense._container:Destroy()
+    EspInterface._hasLoaded = false
+    EspInterface._container:Destroy()
         
     Drawing.clear()
 end
