@@ -762,7 +762,6 @@ function EspInterface.Load()
 end
 
 function EspInterface.Cleanup()
-    print("Called Cleanup")
     if #EspInterface._objectCache > 0 then
         for index, object in next, EspInterface._objectCache do
             for i = 1, #object do
